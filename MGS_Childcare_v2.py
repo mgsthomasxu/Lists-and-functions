@@ -1,27 +1,31 @@
-def dropOff():
+def dropOff(child_name=None):
+    roll.append(child_name)
     child_name = input("Enter the name of the child: ")
     print(f"{child_name} has been added in.")
 
 
-def pickUp():
+def pickUp(child_name_2=None):
     child_name = input("Enter the name of the child: ")
-    print(f"{child_name} has been added in.")
+    roll.remove(child_name_2)
+    print(f"{child_name_2} has been removed in.")
 
 
 def calcCost():
-    hour = float(input("How many hours will this child stay: "))
-    rate_per_hour = 12
-    total_cost = hour * rate_per_hour
+    hour = float(input("How many days will this child stay: "))
+    rate = 12
+    total_cost = hour * rate * 12
     print(f"The total cost for {hour} hours is ${total_cost:.2f}.")
 
 
 def printRoll():
     child_name = input("Enter the name of the child: ")
     print(f"Printing {child_name}...")
+    for item in roll:
+        print
 
 
+roll = []
 choice = 0
-
 while choice != 5:
     print("-----------------------------------------------------------------------")
     print("Welcome to MGS Childcare")
