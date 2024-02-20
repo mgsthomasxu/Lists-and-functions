@@ -1,31 +1,37 @@
-def dropOff(child_name=None):
-    roll.append(child_name)
+roll = []
+
+
+def dropOff():
     child_name = input("Enter the name of the child: ")
+    roll.append(child_name)
     print(f"{child_name} has been added in.")
 
 
-def pickUp(child_name_2=None):
-    child_name = input("Enter the name of the child: ")
-    roll.remove(child_name_2)
-    print(f"{child_name_2} has been removed in.")
+def pickUp():
+    child_name_2 = input("Enter the name of the child: ")
+    if child_name_2 in roll:
+        roll.remove(child_name_2)
+        print(f"{child_name_2} has been removed in.")
+    else:
+        str(input(f"These is no name called {child_name_2}. Please enter it again"))
 
 
 def calcCost():
-    hour = float(input("How many days will this child stay: "))
     rate = 12
     total_cost = hour * rate * 12
-    print(f"The total cost for {hour} hours is ${total_cost:.2f}.")
+    return total_cost
 
 
 def printRoll():
     child_name = input("Enter the name of the child: ")
     print(f"Printing {child_name}...")
     for item in roll:
-        print
+        print(f"\t{item}")
+    print()
 
 
-roll = []
 choice = 0
+def menu():
 while choice != 5:
     print("-----------------------------------------------------------------------")
     print("Welcome to MGS Childcare")
@@ -38,6 +44,7 @@ while choice != 5:
     print("4 Print roll")
     print("5 Exit the system")
     print()
+    menu()
 
     choice = int(input("Enter your choice (number between 1 and 5): "))
     print()
@@ -48,8 +55,9 @@ while choice != 5:
         pickUp()
     elif choice == 3:
         calcCost()
+        hour = float(input("How many days will this child stay: "))
+        print(f"The total cost for {hour} hours is ${total_cost:.2f}.")
     elif choice == 4:
         printRoll()
-        print("Goodbye")
     else:
-        print("Please write the numbers within 1 to 5")
+        print("Goodbye")
