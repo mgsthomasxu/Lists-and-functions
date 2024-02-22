@@ -43,7 +43,7 @@ while True:
     speeder = Speeder(name, speed)
     speeders.append(speeder)
     total_fines += speeder.fine
-    print(f"{speeder.name} will be fined ${speeder.fine}")
+    print(f"{speeder.name} will be ${speeder.fine}")
 
 print("\nSummary of the day:")
 print(f"Total violations: {len(speeders)}")

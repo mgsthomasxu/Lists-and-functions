@@ -1,14 +1,14 @@
 def print_cars():
     print("VEHICLE NUMBER - TYPE - NO. SEATS")
-    for number, car in cars.items():
+    for number, car in booked_cars.items(): 
         if car not in booked_cars:
             print(f"No. {number} - {car['type']} - {car['seats']} seats")
 
 
-def book_car(car_number, customer_name):
-    if car_number in cars:
-        booked_cars.append(cars[car_number])
-        print(f"{cars[car_number]['type']} booked by {customer_name}")
+def book_car(car_number, customer_name, booked_cars):
+    if car_number in car:
+        booked_cars.append(car[car_number])
+        print(f"{car[car_number]['type']} booked by {customer_name}")
     else:
         print("Invalid vehicle number.")
 
@@ -40,9 +40,7 @@ while True:
     seats_required = int(input())
 
     if seats_required == -1:
-        break
-
-    print_cars()
+    print(cars)
     print("Enter a number to book:")
     car_number = int(input())
     print("Enter your name:")
